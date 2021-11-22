@@ -345,12 +345,18 @@ def tiles_full_info(tw, th, tiles_txt, create_masks=False):
                 images_sizes.append(f.shape)
 
         # compute all masks in parallel as numpy arrays
+        # ANCHOR: JaeWang
+        '''
         tiles_usefulnesses = parallel.launch_calls(is_this_tile_useful,
                                                    tiles_coords,
                                                    cfg['max_processes'],
                                                    images_sizes,
                                                    tilewise=False,
                                                    timeout=cfg['timeout'])
+        '''
+        tiles_usefulnesses = []
+        for coords in tiles_coords:
+            tiles_usefulnesses.append(is_this_tile_useful(coords[0], coords[1], coords[2], coords[3], images_sizes))
 
         # discard useless tiles from neighborhood_coords_dict
         discarded_tiles = set(x for x, (b, _) in zip(tiles_coords, tiles_usefulnesses) if not b)

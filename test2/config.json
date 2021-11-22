@@ -1,0 +1,22 @@
+{
+  "out_dir": "../testoutput",
+  "images": [
+    {"img": "po_97258_pan_0000000.tif", "rpcm": "po_97258_pan_0000000_rpc.txt"},
+    {"img": "po_97258_pan_0010000.tif", "rpcm": "po_97258_pan_0010000_rpc.txt"}
+  ],
+  "roi": {
+    "x": 500,
+    "y": 500,
+    "w": 700,
+    "h": 700
+  },
+  "horizontal_margin": 20,
+  "vertical_margin": 5,
+  "tile_size": 300,
+  "disp_range_method": "sift",
+  "msk_erosion": 0,
+  "dsm_resolution": 0.5,
+  "3d_filtering_r": 5,
+  "3d_filtering_n": 50,
+  "timeout": 2000
+}
