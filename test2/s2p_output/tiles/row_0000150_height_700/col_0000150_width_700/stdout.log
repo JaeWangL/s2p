@@ -1,0 +1,128 @@
+triangulating tile 150 150...
+triangulating tile 150 150...
+Exception in plys_to_dsm
+Traceback (most recent call last):
+  File "/Users/jaewanglee/Desktop/untitled folder 2/s2p/s2p/parallel.py", line 43, in tilewise_wrapper
+    out = fun(*args)
+  File "/Users/jaewanglee/Desktop/untitled folder 2/s2p/s2p/__init__.py", line 484, in plys_to_dsm
+    cloud = open3d.read_point_cloud(os.path.join(tile['dir'], 'cloud.ply')) # MARK
+AttributeError: module 'open3d' has no attribute 'read_point_cloud'
+triangulating tile 150 150...
+triangulating tile 150 150...
+[[[nan nan nan]
+  [nan nan nan]
+  [nan nan nan]
+  ...
+  [nan nan nan]
+  [nan nan nan]
+  [nan nan nan]]
+
+ [[nan nan nan]
+  [nan nan nan]
+  [nan nan nan]
+  ...
+  [nan nan nan]
+  [nan nan nan]
+  [nan nan nan]]
+
+ [[nan nan nan]
+  [nan nan nan]
+  [nan nan nan]
+  ...
+  [nan nan nan]
+  [nan nan nan]
+  [nan nan nan]]
+
+ ...
+
+ [[nan nan nan]
+  [nan nan nan]
+  [nan nan nan]
+  ...
+  [nan nan nan]
+  [nan nan nan]
+  [nan nan nan]]
+
+ [[nan nan nan]
+  [nan nan nan]
+  [nan nan nan]
+  ...
+  [nan nan nan]
+  [nan nan nan]
+  [nan nan nan]]
+
+ [[nan nan nan]
+  [nan nan nan]
+  [nan nan nan]
+  ...
+  [nan nan nan]
+  [nan nan nan]
+  [nan nan nan]]]
+Work
+[[nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]
+ ...
+ [nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]]
+triangulating tile 150 150...
+[[[nan nan nan]
+  [nan nan nan]
+  [nan nan nan]
+  ...
+  [nan nan nan]
+  [nan nan nan]
+  [nan nan nan]]
+
+ [[nan nan nan]
+  [nan nan nan]
+  [nan nan nan]
+  ...
+  [nan nan nan]
+  [nan nan nan]
+  [nan nan nan]]
+
+ [[nan nan nan]
+  [nan nan nan]
+  [nan nan nan]
+  ...
+  [nan nan nan]
+  [nan nan nan]
+  [nan nan nan]]
+
+ ...
+
+ [[nan nan nan]
+  [nan nan nan]
+  [nan nan nan]
+  ...
+  [nan nan nan]
+  [nan nan nan]
+  [nan nan nan]]
+
+ [[nan nan nan]
+  [nan nan nan]
+  [nan nan nan]
+  ...
+  [nan nan nan]
+  [nan nan nan]
+  [nan nan nan]]
+
+ [[nan nan nan]
+  [nan nan nan]
+  [nan nan nan]
+  ...
+  [nan nan nan]
+  [nan nan nan]
+  [nan nan nan]]]
+Work
+[[nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]
+ ...
+ [nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]
+ [nan nan nan ... nan nan nan]]
+Work
+triangulating tile 150 150...

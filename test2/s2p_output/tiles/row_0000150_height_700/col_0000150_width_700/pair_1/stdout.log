@@ -1,0 +1,880 @@
+correcting pointing on tile 150 150 pair 1...
+ - prepareSpline                   : (ms) = 13.252
+ - interpolateSpline               : (ms) = 43.3042
+ - recursive call                  : (ms) = 78.7073
+ - gaussianConvolution             : (ms) = 6.89585
+ - prepareSpline                   : (ms) = 22.5655
+ - interpolateSpline               : (ms) = 37.2916
+ - put the mask back               : (ms) = 1.0225
+rectifying tile 150 150 pair 1...
+exogenous disparity range: None
+SIFT disparity range: (-35.0, 44.2)
+Final disparity range: (-35.0, 44.2)
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_01.tif', '-h', '-0.2088389459493369 0.9784242771368488 80.74946248640907 -0.9784242771368488 -0.2088389459493369 1019.1737396232579 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '931', '851']
+0:00:00.341947
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_02.tif', '-h', '-0.22810070240149197 0.9725778739626667 63.77819993661603 -0.9777832363997645 -0.2073958320256131 1029.3930316535245 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '931', '851']
+0:00:00.200582
+-35 45
+01234567
+01234567
+plambda correspondence "x" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif"
+plambda correspondence "y" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif"
+plambda correspondence "z" = "/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_va6hd57z.tif"
+estimating disparity on tile 150 150 pair 1...
+
+RUN: mgm -r -35 -R 45 -s vfit -t census -O 8 -confidence_consensusL s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp_confidence.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif
+0:00:35.520706
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 'x 0 join', '-o', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_zb6_ebtp.tif']
+0:00:00.170462
+
+RUN: ['backflow', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_zb6_ebtp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_va6hd57z.tif']
+0:00:00.146924
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_va6hd57z.tif', 'x isfinite y isfinite z isfinite and and vmul', '-o', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png']
+0:00:00.258944
+
+RUN: morsi disk2 erosion s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png
+0:00:00.048928
+correcting pointing on tile 150 150 pair 1...
+ - prepareSpline                   : (ms) = 12.5422
+ - interpolateSpline               : (ms) = 39.2327
+ - recursive call                  : (ms) = 67.2997
+ - gaussianConvolution             : (ms) = 6.04023
+ - prepareSpline                   : (ms) = 20.2385
+ - interpolateSpline               : (ms) = 35.4203
+ - put the mask back               : (ms) = 1.02087
+rectifying tile 150 150 pair 1...
+exogenous disparity range: None
+SIFT disparity range: (-35.0, 44.2)
+Final disparity range: (-35.0, 44.2)
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_01.tif', '-h', '-0.2088389459493369 0.9784242771368488 80.74946248640907 -0.9784242771368488 -0.2088389459493369 1019.1737396232579 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '931', '851']
+0:00:00.097445
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_02.tif', '-h', '-0.22810070240149197 0.9725778739626667 63.77819993661603 -0.9777832363997645 -0.2073958320256131 1029.3930316535245 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '931', '851']
+0:00:00.175432
+-35 45
+01234567
+01234567
+plambda correspondence "x" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif"
+plambda correspondence "y" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif"
+plambda correspondence "z" = "/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_85grqo1g.tif"
+estimating disparity on tile 150 150 pair 1...
+
+RUN: mgm -r -35 -R 45 -s vfit -t census -O 8 -confidence_consensusL s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp_confidence.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif
+0:00:33.116346
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 'x 0 join', '-o', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_qra9eh7b.tif']
+0:00:00.186483
+
+RUN: ['backflow', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_qra9eh7b.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_85grqo1g.tif']
+0:00:00.140085
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_85grqo1g.tif', 'x isfinite y isfinite z isfinite and and vmul', '-o', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png']
+0:00:00.265375
+
+RUN: morsi disk2 erosion s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png
+0:00:00.045564
+correcting pointing on tile 150 150 pair 1...
+ - prepareSpline                   : (ms) = 12.3875
+ - interpolateSpline               : (ms) = 38.0393
+ - recursive call                  : (ms) = 67.4011
+ - gaussianConvolution             : (ms) = 5.36967
+ - prepareSpline                   : (ms) = 19.6648
+ - interpolateSpline               : (ms) = 33.7767
+ - put the mask back               : (ms) = 1.02144
+rectifying tile 150 150 pair 1...
+exogenous disparity range: None
+SIFT disparity range: (-35.0, 44.2)
+Final disparity range: (-35.0, 44.2)
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_01.tif', '-h', '-0.2088389459493369 0.9784242771368488 80.74946248640907 -0.9784242771368488 -0.2088389459493369 1019.1737396232579 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '931', '851']
+0:00:00.096068
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_02.tif', '-h', '-0.22810070240149197 0.9725778739626667 63.77819993661603 -0.9777832363997645 -0.2073958320256131 1029.3930316535245 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '931', '851']
+0:00:00.174044
+-35 45
+01234567
+01234567
+plambda correspondence "x" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif"
+plambda correspondence "y" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif"
+plambda correspondence "z" = "/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_kk1d4mfj.tif"
+estimating disparity on tile 150 150 pair 1...
+
+RUN: mgm -r -35 -R 45 -s vfit -t census -O 8 -confidence_consensusL s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp_confidence.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif
+0:00:29.342469
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 'x 0 join', '-o', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_llcvcjj7.tif']
+0:00:00.143291
+
+RUN: ['backflow', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_llcvcjj7.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_kk1d4mfj.tif']
+0:00:00.123890
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_kk1d4mfj.tif', 'x isfinite y isfinite z isfinite and and vmul', '-o', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png']
+0:00:00.241713
+
+RUN: morsi disk2 erosion s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png
+0:00:00.041814
+correcting pointing on tile 150 150 pair 1...
+ - prepareSpline                   : (ms) = 12.364
+ - interpolateSpline               : (ms) = 38.017
+ - recursive call                  : (ms) = 68.5098
+ - gaussianConvolution             : (ms) = 5.2489
+ - prepareSpline                   : (ms) = 18.818
+ - interpolateSpline               : (ms) = 31.3652
+ - put the mask back               : (ms) = 0.886945
+rectifying tile 150 150 pair 1...
+exogenous disparity range: None
+SIFT disparity range: (-35.0, 44.2)
+Final disparity range: (-35.0, 44.2)
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_01.tif', '-h', '-0.2088389459493369 0.9784242771368488 80.74946248640907 -0.9784242771368488 -0.2088389459493369 1019.1737396232579 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '931', '851']
+0:00:00.095097
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_02.tif', '-h', '-0.22810070240149197 0.9725778739626667 63.77819993661603 -0.9777832363997645 -0.2073958320256131 1029.3930316535245 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '931', '851']
+0:00:00.170965
+-35 45
+01234567
+01234567
+plambda correspondence "x" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif"
+plambda correspondence "y" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif"
+plambda correspondence "z" = "/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_b30hlaaz.tif"
+estimating disparity on tile 150 150 pair 1...
+
+RUN: mgm -r -35 -R 45 -s vfit -t census -O 8 -confidence_consensusL s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp_confidence.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif
+0:00:29.207711
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 'x 0 join', '-o', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_19pmrazu.tif']
+0:00:00.140637
+
+RUN: ['backflow', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_19pmrazu.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_b30hlaaz.tif']
+0:00:00.123942
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_b30hlaaz.tif', 'x isfinite y isfinite z isfinite and and vmul', '-o', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png']
+0:00:00.236794
+
+RUN: morsi disk2 erosion s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png
+0:00:00.039806
+correcting pointing on tile 150 150 pair 1...
+ - prepareSpline                   : (ms) = 12.4381
+ - interpolateSpline               : (ms) = 38.3555
+ - recursive call                  : (ms) = 67.1063
+ - gaussianConvolution             : (ms) = 5.47461
+ - prepareSpline                   : (ms) = 20.5278
+ - interpolateSpline               : (ms) = 37.0701
+ - put the mask back               : (ms) = 1.02103
+rectifying tile 150 150 pair 1...
+exogenous disparity range: None
+SIFT disparity range: (-35.0, 44.2)
+Final disparity range: (-35.0, 44.2)
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_01.tif', '-h', '-0.2088389459493369 0.9784242771368488 80.74946248640907 -0.9784242771368488 -0.2088389459493369 1019.1737396232579 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '931', '851']
+0:00:00.096258
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_02.tif', '-h', '-0.22810070240149197 0.9725778739626667 63.77819993661603 -0.9777832363997645 -0.2073958320256131 1029.3930316535245 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '931', '851']
+0:00:00.177961
+-35 45
+01234567
+01234567
+plambda correspondence "x" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif"
+plambda correspondence "y" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif"
+plambda correspondence "z" = "/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_jwxmyq32.tif"
+estimating disparity on tile 150 150 pair 1...
+
+RUN: mgm -r -35 -R 45 -s vfit -t census -O 8 -confidence_consensusL s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp_confidence.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif
+0:00:29.218723
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 'x 0 join', '-o', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_0cq85pan.tif']
+0:00:00.141465
+
+RUN: ['backflow', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_0cq85pan.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_jwxmyq32.tif']
+0:00:00.122979
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_jwxmyq32.tif', 'x isfinite y isfinite z isfinite and and vmul', '-o', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png']
+0:00:00.239712
+
+RUN: morsi disk2 erosion s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png
+0:00:00.040058
+correcting pointing on tile 150 150 pair 1...
+ - prepareSpline                   : (ms) = 12.4464
+ - interpolateSpline               : (ms) = 38.8688
+ - recursive call                  : (ms) = 66.7214
+ - gaussianConvolution             : (ms) = 5.32234
+ - prepareSpline                   : (ms) = 19.329
+ - interpolateSpline               : (ms) = 31.1351
+ - put the mask back               : (ms) = 0.886582
+rectifying tile 150 150 pair 1...
+exogenous disparity range: None
+SIFT disparity range: (-35.0, 44.2)
+Final disparity range: (-35.0, 44.2)
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_01.tif', '-h', '-0.2088389459493369 0.9784242771368488 80.74946248640907 -0.9784242771368488 -0.2088389459493369 1019.1737396232579 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '931', '851']
+0:00:00.099796
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_02.tif', '-h', '-0.22810070240149197 0.9725778739626667 63.77819993661603 -0.9777832363997645 -0.2073958320256131 1029.3930316535245 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '931', '851']
+0:00:00.169907
+-35 45
+01234567
+01234567
+plambda correspondence "x" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif"
+plambda correspondence "y" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif"
+plambda correspondence "z" = "/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_lwwamowo.tif"
+estimating disparity on tile 150 150 pair 1...
+
+RUN: mgm -r -35 -R 45 -s vfit -t census -O 8 -confidence_consensusL s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp_confidence.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif
+0:00:29.228865
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 'x 0 join', '-o', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_dllcxbqz.tif']
+0:00:00.142974
+
+RUN: ['backflow', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_dllcxbqz.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_lwwamowo.tif']
+0:00:00.128033
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_lwwamowo.tif', 'x isfinite y isfinite z isfinite and and vmul', '-o', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png']
+0:00:00.234977
+
+RUN: morsi disk2 erosion s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png
+0:00:00.040066
+correcting pointing on tile 150 150 pair 1...
+ - prepareSpline                   : (ms) = 12.3758
+ - interpolateSpline               : (ms) = 37.9894
+ - recursive call                  : (ms) = 66.5338
+ - gaussianConvolution             : (ms) = 5.52789
+ - prepareSpline                   : (ms) = 18.8492
+ - interpolateSpline               : (ms) = 31.5349
+ - put the mask back               : (ms) = 0.887652
+rectifying tile 150 150 pair 1...
+exogenous disparity range: None
+SIFT disparity range: (-35.0, 44.2)
+Final disparity range: (-35.0, 44.2)
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_01.tif', '-h', '-0.2088389459493369 0.9784242771368488 80.74946248640907 -0.9784242771368488 -0.2088389459493369 1019.1737396232579 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '931', '851']
+0:00:00.094664
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_02.tif', '-h', '-0.22810070240149197 0.9725778739626667 63.77819993661603 -0.9777832363997645 -0.2073958320256131 1029.3930316535245 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '931', '851']
+0:00:00.170178
+-35 45
+01234567
+01234567
+plambda correspondence "x" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif"
+plambda correspondence "y" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif"
+plambda correspondence "z" = "/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_5ib_5mcj.tif"
+estimating disparity on tile 150 150 pair 1...
+
+RUN: mgm -r -35 -R 45 -s vfit -t census -O 8 -confidence_consensusL s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp_confidence.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif
+0:00:29.280046
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 'x 0 join', '-o', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_rj8ri9ak.tif']
+0:00:00.137165
+
+RUN: ['backflow', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_rj8ri9ak.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_5ib_5mcj.tif']
+0:00:00.123705
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_5ib_5mcj.tif', 'x isfinite y isfinite z isfinite and and vmul', '-o', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png']
+0:00:00.238506
+
+RUN: morsi disk2 erosion s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png
+0:00:00.041114
+correcting pointing on tile 150 150 pair 1...
+ - prepareSpline                   : (ms) = 12.5752
+ - interpolateSpline               : (ms) = 38.5314
+ - recursive call                  : (ms) = 67.6649
+ - gaussianConvolution             : (ms) = 5.33555
+ - prepareSpline                   : (ms) = 18.9037
+ - interpolateSpline               : (ms) = 32.3962
+ - put the mask back               : (ms) = 0.937378
+rectifying tile 150 150 pair 1...
+exogenous disparity range: None
+SIFT disparity range: (-35.0, 44.2)
+Final disparity range: (-35.0, 44.2)
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_01.tif', '-h', '-0.2088389459493369 0.9784242771368488 80.74946248640907 -0.9784242771368488 -0.2088389459493369 1019.1737396232579 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '931', '851']
+0:00:00.097106
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_02.tif', '-h', '-0.22810070240149197 0.9725778739626667 63.77819993661603 -0.9777832363997645 -0.2073958320256131 1029.3930316535245 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '931', '851']
+0:00:00.171870
+-35 45
+01234567
+01234567
+plambda correspondence "x" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif"
+plambda correspondence "y" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif"
+plambda correspondence "z" = "/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_duhe_cfa.tif"
+estimating disparity on tile 150 150 pair 1...
+
+RUN: mgm -r -35 -R 45 -s vfit -t census -O 8 -confidence_consensusL s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp_confidence.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif
+0:00:29.886790
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 'x 0 join', '-o', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_5pqecmwr.tif']
+0:00:00.145829
+
+RUN: ['backflow', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_5pqecmwr.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_duhe_cfa.tif']
+0:00:00.127426
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_duhe_cfa.tif', 'x isfinite y isfinite z isfinite and and vmul', '-o', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png']
+0:00:00.241276
+
+RUN: morsi disk2 erosion s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png
+0:00:00.038303
+correcting pointing on tile 150 150 pair 1...
+ - prepareSpline                   : (ms) = 12.7792
+ - interpolateSpline               : (ms) = 39.5673
+ - recursive call                  : (ms) = 67.1607
+ - gaussianConvolution             : (ms) = 5.37865
+ - prepareSpline                   : (ms) = 19.8126
+ - interpolateSpline               : (ms) = 32.4694
+ - put the mask back               : (ms) = 0.935813
+rectifying tile 150 150 pair 1...
+exogenous disparity range: None
+SIFT disparity range: (-35.0, 44.2)
+Final disparity range: (-35.0, 44.2)
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_01.tif', '-h', '-0.2088389459493369 0.9784242771368488 80.74946248640907 -0.9784242771368488 -0.2088389459493369 1019.1737396232579 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '931', '851']
+0:00:00.098696
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_02.tif', '-h', '-0.22810070240149197 0.9725778739626667 63.77819993661603 -0.9777832363997645 -0.2073958320256131 1029.3930316535245 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '931', '851']
+0:00:00.172347
+-35 45
+01234567
+01234567
+plambda correspondence "x" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif"
+plambda correspondence "y" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif"
+plambda correspondence "z" = "/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_0kwm8r83.tif"
+estimating disparity on tile 150 150 pair 1...
+
+RUN: mgm -r -35 -R 45 -s vfit -t census -O 8 -confidence_consensusL s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp_confidence.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif
+0:00:29.685303
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 'x 0 join', '-o', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_n5zp_rtb.tif']
+0:00:00.141705
+
+RUN: ['backflow', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_n5zp_rtb.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_0kwm8r83.tif']
+0:00:00.122550
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_0kwm8r83.tif', 'x isfinite y isfinite z isfinite and and vmul', '-o', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png']
+0:00:00.241968
+
+RUN: morsi disk2 erosion s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png
+0:00:00.039899
+correcting pointing on tile 150 150 pair 1...
+ - prepareSpline                   : (ms) = 12.4678
+ - interpolateSpline               : (ms) = 36.4679
+ - recursive call                  : (ms) = 64.1452
+ - gaussianConvolution             : (ms) = 6.2529
+ - prepareSpline                   : (ms) = 19.2075
+ - interpolateSpline               : (ms) = 31.7405
+ - put the mask back               : (ms) = 1.03929
+rectifying tile 150 150 pair 1...
+exogenous disparity range: None
+SIFT disparity range: (-35.0, 44.2)
+Final disparity range: (-35.0, 44.2)
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_01.tif', '-h', '-0.2088389459493369 0.9784242771368488 80.74946248640907 -0.9784242771368488 -0.2088389459493369 1019.1737396232579 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '931', '851']
+0:00:00.308516
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_02.tif', '-h', '-0.22810070240149197 0.9725778739626667 63.77819993661603 -0.9777832363997645 -0.2073958320256131 1029.3930316535245 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '931', '851']
+0:00:00.172396
+-35 45
+01234567
+01234567
+plambda correspondence "x" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif"
+plambda correspondence "y" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif"
+plambda correspondence "z" = "/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_yc64qgvh.tif"
+estimating disparity on tile 150 150 pair 1...
+
+RUN: mgm -r -35 -R 45 -s vfit -t census -O 8 -confidence_consensusL s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp_confidence.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif
+0:00:29.231983
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 'x 0 join', '-o', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_mduwcvr9.tif']
+0:00:00.153623
+
+RUN: ['backflow', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_mduwcvr9.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_yc64qgvh.tif']
+0:00:00.134457
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_yc64qgvh.tif', 'x isfinite y isfinite z isfinite and and vmul', '-o', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png']
+0:00:00.228706
+
+RUN: morsi disk2 erosion s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png
+0:00:00.048836
+correcting pointing on tile 150 150 pair 1...
+ - prepareSpline                   : (ms) = 12.4072
+ - interpolateSpline               : (ms) = 39.5738
+ - recursive call                  : (ms) = 67.2843
+ - gaussianConvolution             : (ms) = 5.39615
+ - prepareSpline                   : (ms) = 18.9922
+ - interpolateSpline               : (ms) = 31.3213
+ - put the mask back               : (ms) = 0.887002
+rectifying tile 150 150 pair 1...
+exogenous disparity range: None
+SIFT disparity range: (-35.0, 44.2)
+Final disparity range: (-35.0, 44.2)
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_01.tif', '-h', '-0.2088389459493369 0.9784242771368488 80.74946248640907 -0.9784242771368488 -0.2088389459493369 1019.1737396232579 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '931', '851']
+0:00:00.096969
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_02.tif', '-h', '-0.22810070240149197 0.9725778739626667 63.77819993661603 -0.9777832363997645 -0.2073958320256131 1029.3930316535245 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '931', '851']
+0:00:00.169580
+-35 45
+01234567
+01234567
+plambda correspondence "x" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif"
+plambda correspondence "y" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif"
+plambda correspondence "z" = "/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_os0ltxir.tif"
+estimating disparity on tile 150 150 pair 1...
+
+RUN: mgm -r -35 -R 45 -s vfit -t census -O 8 -confidence_consensusL s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp_confidence.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif
+0:00:32.273435
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 'x 0 join', '-o', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_fg3gw2kc.tif']
+0:00:00.140526
+
+RUN: ['backflow', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_fg3gw2kc.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_os0ltxir.tif']
+0:00:00.123796
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_os0ltxir.tif', 'x isfinite y isfinite z isfinite and and vmul', '-o', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png']
+0:00:00.230173
+
+RUN: morsi disk2 erosion s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png
+0:00:00.038947
+correcting pointing on tile 150 150 pair 1...
+ - prepareSpline                   : (ms) = 13.018
+ - interpolateSpline               : (ms) = 39.1046
+ - recursive call                  : (ms) = 67.0119
+ - gaussianConvolution             : (ms) = 5.34253
+ - prepareSpline                   : (ms) = 19.4064
+ - interpolateSpline               : (ms) = 32.5614
+ - put the mask back               : (ms) = 1.0089
+rectifying tile 150 150 pair 1...
+exogenous disparity range: None
+SIFT disparity range: (-35.0, 44.2)
+Final disparity range: (-35.0, 44.2)
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_01.tif', '-h', '-0.2088389459493369 0.9784242771368488 80.74946248640907 -0.9784242771368488 -0.2088389459493369 1019.1737396232579 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '931', '851']
+0:00:00.099162
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_02.tif', '-h', '-0.22810070240149197 0.9725778739626667 63.77819993661603 -0.9777832363997645 -0.2073958320256131 1029.3930316535245 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '931', '851']
+0:00:00.173291
+-35 45
+01234567
+01234567
+plambda correspondence "x" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif"
+plambda correspondence "y" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif"
+plambda correspondence "z" = "/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_70hwretb.tif"
+estimating disparity on tile 150 150 pair 1...
+
+RUN: mgm -r -35 -R 45 -s vfit -t census -O 8 -confidence_consensusL s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp_confidence.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif
+0:00:29.863117
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 'x 0 join', '-o', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_9jjljwva.tif']
+0:00:00.130088
+
+RUN: ['backflow', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_9jjljwva.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_70hwretb.tif']
+0:00:00.121239
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_70hwretb.tif', 'x isfinite y isfinite z isfinite and and vmul', '-o', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png']
+0:00:00.233067
+
+RUN: morsi disk2 erosion s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png
+0:00:00.041537
+correcting pointing on tile 150 150 pair 1...
+ - prepareSpline                   : (ms) = 12.5398
+ - interpolateSpline               : (ms) = 39.5073
+ - recursive call                  : (ms) = 68.5116
+ - gaussianConvolution             : (ms) = 6.08553
+ - prepareSpline                   : (ms) = 21.9904
+ - interpolateSpline               : (ms) = 35.7419
+ - put the mask back               : (ms) = 1.02205
+rectifying tile 150 150 pair 1...
+exogenous disparity range: None
+SIFT disparity range: (-35.0, 44.2)
+Final disparity range: (-35.0, 44.2)
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_01.tif', '-h', '-0.2088389459493369 0.9784242771368488 80.74946248640907 -0.9784242771368488 -0.2088389459493369 1019.1737396232579 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '931', '851']
+0:00:00.099510
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_02.tif', '-h', '-0.22810070240149197 0.9725778739626667 63.77819993661603 -0.9777832363997645 -0.2073958320256131 1029.3930316535245 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '931', '851']
+0:00:00.181474
+-35 45
+01234567
+01234567
+plambda correspondence "x" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif"
+plambda correspondence "y" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif"
+plambda correspondence "z" = "/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_0ut3d4jy.tif"
+estimating disparity on tile 150 150 pair 1...
+
+RUN: mgm -r -35 -R 45 -s vfit -t census -O 8 -confidence_consensusL s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp_confidence.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif
+0:00:35.061904
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 'x 0 join', '-o', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_adkdrhrx.tif']
+0:00:00.155030
+
+RUN: ['backflow', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_adkdrhrx.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_0ut3d4jy.tif']
+0:00:00.136112
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_0ut3d4jy.tif', 'x isfinite y isfinite z isfinite and and vmul', '-o', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png']
+0:00:00.264786
+
+RUN: morsi disk2 erosion s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png
+0:00:00.041665
+correcting pointing on tile 150 150 pair 1...
+ - prepareSpline                   : (ms) = 12.3773
+ - interpolateSpline               : (ms) = 38.8858
+ - recursive call                  : (ms) = 72.1918
+ - gaussianConvolution             : (ms) = 5.81445
+ - prepareSpline                   : (ms) = 21.9111
+ - interpolateSpline               : (ms) = 35.5085
+ - put the mask back               : (ms) = 1.02129
+rectifying tile 150 150 pair 1...
+exogenous disparity range: None
+SIFT disparity range: (-35.0, 44.2)
+Final disparity range: (-35.0, 44.2)
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_01.tif', '-h', '-0.2088389459493369 0.9784242771368488 80.74946248640907 -0.9784242771368488 -0.2088389459493369 1019.1737396232579 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '931', '851']
+0:00:00.097805
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_02.tif', '-h', '-0.22810070240149197 0.9725778739626667 63.77819993661603 -0.9777832363997645 -0.2073958320256131 1029.3930316535245 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '931', '851']
+0:00:00.184062
+-35 45
+01234567
+01234567
+plambda correspondence "x" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif"
+plambda correspondence "y" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif"
+plambda correspondence "z" = "/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_9_5krtkp.tif"
+estimating disparity on tile 150 150 pair 1...
+
+RUN: mgm -r -35 -R 45 -s vfit -t census -O 8 -confidence_consensusL s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp_confidence.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif
+0:00:29.528979
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 'x 0 join', '-o', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_tput3bfi.tif']
+0:00:00.134411
+
+RUN: ['backflow', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_tput3bfi.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_9_5krtkp.tif']
+0:00:00.120835
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_9_5krtkp.tif', 'x isfinite y isfinite z isfinite and and vmul', '-o', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png']
+0:00:00.234012
+
+RUN: morsi disk2 erosion s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png
+0:00:00.041072
+correcting pointing on tile 150 150 pair 1...
+ - prepareSpline                   : (ms) = 12.8516
+ - interpolateSpline               : (ms) = 42.2432
+ - recursive call                  : (ms) = 74.6041
+ - gaussianConvolution             : (ms) = 5.82412
+ - prepareSpline                   : (ms) = 21.5275
+ - interpolateSpline               : (ms) = 35.8823
+ - put the mask back               : (ms) = 1.02134
+rectifying tile 150 150 pair 1...
+exogenous disparity range: None
+SIFT disparity range: (-35.0, 44.2)
+Final disparity range: (-35.0, 44.2)
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_01.tif', '-h', '-0.2088389459493369 0.9784242771368488 80.74946248640907 -0.9784242771368488 -0.2088389459493369 1019.1737396232579 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '931', '851']
+0:00:00.101707
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_02.tif', '-h', '-0.22810070240149197 0.9725778739626667 63.77819993661603 -0.9777832363997645 -0.2073958320256131 1029.3930316535245 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '931', '851']
+0:00:00.185308
+-35 45
+01234567
+01234567
+plambda correspondence "x" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif"
+plambda correspondence "y" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif"
+plambda correspondence "z" = "/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_6c2gk4ax.tif"
+estimating disparity on tile 150 150 pair 1...
+
+RUN: mgm -r -35 -R 45 -s vfit -t census -O 8 -confidence_consensusL s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp_confidence.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif
+0:00:31.358081
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 'x 0 join', '-o', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_01ictp0p.tif']
+0:00:00.146579
+
+RUN: ['backflow', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_01ictp0p.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_6c2gk4ax.tif']
+0:00:00.125620
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_6c2gk4ax.tif', 'x isfinite y isfinite z isfinite and and vmul', '-o', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png']
+0:00:00.243569
+
+RUN: morsi disk2 erosion s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png
+0:00:00.041983
+correcting pointing on tile 150 150 pair 1...
+ - prepareSpline                   : (ms) = 14.3867
+ - interpolateSpline               : (ms) = 45.9913
+ - recursive call                  : (ms) = 69.5297
+ - gaussianConvolution             : (ms) = 5.38791
+ - prepareSpline                   : (ms) = 21.2245
+ - interpolateSpline               : (ms) = 35.5372
+ - put the mask back               : (ms) = 0.887147
+rectifying tile 150 150 pair 1...
+exogenous disparity range: None
+SIFT disparity range: (-35.0, 44.2)
+Final disparity range: (-35.0, 44.2)
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_01.tif', '-h', '-0.2088389459493369 0.9784242771368488 80.74946248640907 -0.9784242771368488 -0.2088389459493369 1019.1737396232579 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '931', '851']
+0:00:00.115277
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_02.tif', '-h', '-0.22810070240149197 0.9725778739626667 63.77819993661603 -0.9777832363997645 -0.2073958320256131 1029.3930316535245 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '931', '851']
+0:00:00.181200
+-35 45
+01234567
+01234567
+plambda correspondence "x" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif"
+plambda correspondence "y" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif"
+plambda correspondence "z" = "/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_hu33mfvv.tif"
+estimating disparity on tile 150 150 pair 1...
+
+RUN: mgm -r -35 -R 45 -s vfit -t census -O 8 -confidence_consensusL s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp_confidence.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif
+0:00:33.037277
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 'x 0 join', '-o', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_gau1f_o7.tif']
+0:00:00.151278
+
+RUN: ['backflow', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_gau1f_o7.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_hu33mfvv.tif']
+0:00:00.146441
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_hu33mfvv.tif', 'x isfinite y isfinite z isfinite and and vmul', '-o', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png']
+0:00:00.266108
+
+RUN: morsi disk2 erosion s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png
+0:00:00.045647
+correcting pointing on tile 150 150 pair 1...
+ - prepareSpline                   : (ms) = 12.8031
+ - interpolateSpline               : (ms) = 41.2193
+ - recursive call                  : (ms) = 73.6579
+ - gaussianConvolution             : (ms) = 5.95702
+ - prepareSpline                   : (ms) = 20.3824
+ - interpolateSpline               : (ms) = 36.7765
+ - put the mask back               : (ms) = 1.02288
+rectifying tile 150 150 pair 1...
+exogenous disparity range: None
+SIFT disparity range: (-35.0, 44.2)
+Final disparity range: (-35.0, 44.2)
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_01.tif', '-h', '-0.2088389459493369 0.9784242771368488 80.74946248640907 -0.9784242771368488 -0.2088389459493369 1019.1737396232579 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '931', '851']
+0:00:00.101408
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_02.tif', '-h', '-0.22810070240149197 0.9725778739626667 63.77819993661603 -0.9777832363997645 -0.2073958320256131 1029.3930316535245 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '931', '851']
+0:00:00.186603
+-35 45
+01234567
+01234567
+plambda correspondence "x" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif"
+plambda correspondence "y" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif"
+plambda correspondence "z" = "/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_9ngj37vz.tif"
+estimating disparity on tile 150 150 pair 1...
+
+RUN: mgm -r -35 -R 45 -s vfit -t census -O 8 -confidence_consensusL s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp_confidence.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif
+0:00:31.895993
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 'x 0 join', '-o', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_f7l7uqum.tif']
+0:00:00.162514
+
+RUN: ['backflow', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_f7l7uqum.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_9ngj37vz.tif']
+0:00:00.143375
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_9ngj37vz.tif', 'x isfinite y isfinite z isfinite and and vmul', '-o', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png']
+0:00:00.235610
+
+RUN: morsi disk2 erosion s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png
+0:00:00.066366
+correcting pointing on tile 150 150 pair 1...
+ - prepareSpline                   : (ms) = 12.4403
+ - interpolateSpline               : (ms) = 39.4655
+ - recursive call                  : (ms) = 69.1718
+ - gaussianConvolution             : (ms) = 5.34446
+ - prepareSpline                   : (ms) = 20.6708
+ - interpolateSpline               : (ms) = 34.6617
+ - put the mask back               : (ms) = 0.936282
+rectifying tile 150 150 pair 1...
+exogenous disparity range: None
+SIFT disparity range: (-35.0, 44.2)
+Final disparity range: (-35.0, 44.2)
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_01.tif', '-h', '-0.2088389459493369 0.9784242771368488 80.74946248640907 -0.9784242771368488 -0.2088389459493369 1019.1737396232579 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '931', '851']
+0:00:00.097670
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_02.tif', '-h', '-0.22810070240149197 0.9725778739626667 63.77819993661603 -0.9777832363997645 -0.2073958320256131 1029.3930316535245 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '931', '851']
+0:00:00.176880
+-35 45
+01234567
+01234567
+plambda correspondence "x" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif"
+plambda correspondence "y" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif"
+plambda correspondence "z" = "/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_40jvpa3p.tif"
+estimating disparity on tile 150 150 pair 1...
+
+RUN: mgm -r -35 -R 45 -s vfit -t census -O 8 -confidence_consensusL s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp_confidence.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif
+0:00:34.866135
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 'x 0 join', '-o', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_hmhm1eji.tif']
+0:00:00.150984
+
+RUN: ['backflow', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_hmhm1eji.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_40jvpa3p.tif']
+0:00:00.143408
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_40jvpa3p.tif', 'x isfinite y isfinite z isfinite and and vmul', '-o', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png']
+0:00:00.264591
+
+RUN: morsi disk2 erosion s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png
+0:00:00.043531
+correcting pointing on tile 150 150 pair 1...
+ - prepareSpline                   : (ms) = 13.091
+ - interpolateSpline               : (ms) = 42.5681
+ - recursive call                  : (ms) = 75.3295
+ - gaussianConvolution             : (ms) = 6.45245
+ - prepareSpline                   : (ms) = 22.5729
+ - interpolateSpline               : (ms) = 36.5903
+ - put the mask back               : (ms) = 1.05196
+rectifying tile 150 150 pair 1...
+exogenous disparity range: None
+SIFT disparity range: (-35.0, 44.2)
+Final disparity range: (-35.0, 44.2)
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_01.tif', '-h', '-0.2088389459493369 0.9784242771368488 80.74946248640907 -0.9784242771368488 -0.2088389459493369 1019.1737396232579 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '931', '851']
+0:00:00.107060
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_02.tif', '-h', '-0.22810070240149197 0.9725778739626667 63.77819993661603 -0.9777832363997645 -0.2073958320256131 1029.3930316535245 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '931', '851']
+0:00:00.195973
+-35 45
+01234567
+01234567
+plambda correspondence "x" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif"
+plambda correspondence "y" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif"
+plambda correspondence "z" = "/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_stfksyd_.tif"
+estimating disparity on tile 150 150 pair 1...
+
+RUN: mgm -r -35 -R 45 -s vfit -t census -O 8 -confidence_consensusL s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp_confidence.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif
+0:00:35.240382
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 'x 0 join', '-o', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_ki14_exh.tif']
+0:00:00.166559
+
+RUN: ['backflow', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_ki14_exh.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_stfksyd_.tif']
+0:00:00.155211
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_stfksyd_.tif', 'x isfinite y isfinite z isfinite and and vmul', '-o', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png']
+0:00:00.292406
+
+RUN: morsi disk2 erosion s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png
+0:00:00.045585
+correcting pointing on tile 150 150 pair 1...
+ - prepareSpline                   : (ms) = 12.6186
+ - interpolateSpline               : (ms) = 40.351
+ - recursive call                  : (ms) = 78.7479
+ - gaussianConvolution             : (ms) = 5.95866
+ - prepareSpline                   : (ms) = 23.0097
+ - interpolateSpline               : (ms) = 37.334
+ - put the mask back               : (ms) = 1.14539
+rectifying tile 150 150 pair 1...
+exogenous disparity range: None
+SIFT disparity range: (-35.0, 44.2)
+Final disparity range: (-35.0, 44.2)
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_01.tif', '-h', '-0.2088389459493369 0.9784242771368488 80.74946248640907 -0.9784242771368488 -0.2088389459493369 1019.1737396232579 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '931', '851']
+0:00:00.103013
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_02.tif', '-h', '-0.22810070240149197 0.9725778739626667 63.77819993661603 -0.9777832363997645 -0.2073958320256131 1029.3930316535245 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '931', '851']
+0:00:00.199244
+-35 45
+01234567
+01234567
+plambda correspondence "x" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif"
+plambda correspondence "y" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif"
+plambda correspondence "z" = "/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_p6222_bh.tif"
+estimating disparity on tile 150 150 pair 1...
+
+RUN: mgm -r -35 -R 45 -s vfit -t census -O 8 -confidence_consensusL s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp_confidence.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif
+0:00:33.526569
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 'x 0 join', '-o', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_c2yvnl9j.tif']
+0:00:00.144836
+
+RUN: ['backflow', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_c2yvnl9j.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_p6222_bh.tif']
+0:00:00.123284
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_p6222_bh.tif', 'x isfinite y isfinite z isfinite and and vmul', '-o', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png']
+0:00:00.247557
+
+RUN: morsi disk2 erosion s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png
+0:00:00.039414
+correcting pointing on tile 150 150 pair 1...
+ - prepareSpline                   : (ms) = 12.5336
+ - interpolateSpline               : (ms) = 43.6504
+ - recursive call                  : (ms) = 75.4702
+ - gaussianConvolution             : (ms) = 7.08847
+ - prepareSpline                   : (ms) = 22.2798
+ - interpolateSpline               : (ms) = 36.1267
+ - put the mask back               : (ms) = 1.02175
+rectifying tile 150 150 pair 1...
+exogenous disparity range: None
+SIFT disparity range: (-35.0, 44.2)
+Final disparity range: (-35.0, 44.2)
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_01.tif', '-h', '-0.2088389459493369 0.9784242771368488 80.74946248640907 -0.9784242771368488 -0.2088389459493369 1019.1737396232579 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '931', '851']
+0:00:00.104477
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_02.tif', '-h', '-0.22810070240149197 0.9725778739626667 63.77819993661603 -0.9777832363997645 -0.2073958320256131 1029.3930316535245 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '931', '851']
+0:00:00.189966
+-35 45
+01234567
+01234567
+plambda correspondence "x" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif"
+plambda correspondence "y" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif"
+plambda correspondence "z" = "/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_o6rslefm.tif"
+estimating disparity on tile 150 150 pair 1...
+
+RUN: mgm -r -35 -R 45 -s vfit -t census -O 8 -confidence_consensusL s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp_confidence.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif
+0:00:30.670948
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 'x 0 join', '-o', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_lmzvyopd.tif']
+0:00:00.126521
+
+RUN: ['backflow', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_lmzvyopd.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_o6rslefm.tif']
+0:00:00.122785
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_o6rslefm.tif', 'x isfinite y isfinite z isfinite and and vmul', '-o', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png']
+0:00:00.235979
+
+RUN: morsi disk2 erosion s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png
+0:00:00.038544
+correcting pointing on tile 150 150 pair 1...
+ - prepareSpline                   : (ms) = 12.5277
+ - interpolateSpline               : (ms) = 39.7608
+ - recursive call                  : (ms) = 67.15
+ - gaussianConvolution             : (ms) = 5.13725
+ - prepareSpline                   : (ms) = 19.3683
+ - interpolateSpline               : (ms) = 31.4399
+ - put the mask back               : (ms) = 0.887829
+rectifying tile 150 150 pair 1...
+exogenous disparity range: None
+SIFT disparity range: (-35.0, 44.2)
+Final disparity range: (-35.0, 44.2)
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_01.tif', '-h', '-0.2088389459493369 0.9784242771368488 80.74946248640907 -0.9784242771368488 -0.2088389459493369 1019.1737396232579 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '931', '851']
+0:00:00.097929
+
+RUN: ['homography', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test3/img_02.tif', '-h', '-0.22810070240149197 0.9725778739626667 63.77819993661603 -0.9777832363997645 -0.2073958320256131 1029.3930316535245 0.0 0.0 1.0', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '931', '851']
+0:00:00.170262
+-35 45
+01234567
+01234567
+plambda correspondence "x" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif"
+plambda correspondence "y" = "s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif"
+plambda correspondence "z" = "/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_cgvqaz59.tif"
+estimating disparity on tile 150 150 pair 1...
+
+RUN: mgm -r -35 -R 45 -s vfit -t census -O 8 -confidence_consensusL s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp_confidence.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif
+0:00:29.839075
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 'x 0 join', '-o', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_p46aa1ad.tif']
+0:00:00.141536
+
+RUN: ['backflow', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_p46aa1ad.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_sec.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_cgvqaz59.tif']
+0:00:00.123314
+
+RUN: ['plambda', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_disp.tif', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_ref.tif', '/Users/jaewanglee/Desktop/untitled folder 2/s2p/test2/s2p_tmp/s2p_cgvqaz59.tif', 'x isfinite y isfinite z isfinite and and vmul', '-o', 's2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png']
+0:00:00.239150
+
+RUN: morsi disk2 erosion s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png s2p_output/tiles/row_0000150_height_700/col_0000150_width_700/pair_1/rectified_mask.png
+0:00:00.037682

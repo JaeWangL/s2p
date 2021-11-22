@@ -556,8 +556,11 @@ def main(user_cfg):
 
     # local-pointing step:
     print('correcting pointing locally...')
-    parallel.launch_calls(pointing_correction, tiles_pairs, nb_workers,
-                          timeout=timeout)
+    # ANCHOR: JaeWang
+    # parallel.launch_calls(pointing_correction, tiles_pairs, nb_workers,
+    #                      timeout=timeout)
+    for tile, i in tiles_pairs:
+        pointing_correction(tile, i)
 
     # global-pointing step:
     print('correcting pointing globally...')
@@ -566,8 +569,11 @@ def main(user_cfg):
 
     # rectification step:
     print('rectifying tiles...')
-    parallel.launch_calls(rectification_pair, tiles_pairs, nb_workers,
-                          timeout=timeout)
+    # ANCHOR: JaeWang
+    # parallel.launch_calls(rectification_pair, tiles_pairs, nb_workers,
+    #                      timeout=timeout)
+    for tile, i in tiles_pairs:
+        rectification_pair(tile, i)
 
     # matching step:
     print('running stereo matching...')
@@ -575,8 +581,11 @@ def main(user_cfg):
         nb_workers_stereo = cfg['max_processes_stereo_matching']
     else:
         nb_workers_stereo = nb_workers
-    parallel.launch_calls(stereo_matching, tiles_pairs, nb_workers_stereo,
-                          timeout=timeout)
+    # ANCHOR: JaeWang
+    # parallel.launch_calls(stereo_matching, tiles_pairs, nb_workers_stereo,
+    #                      timeout=timeout)
+    for tile, i in tiles_pairs:
+        stereo_matching(tile, i)
 
     if n > 2:
         # disparity-to-height step:
@@ -598,12 +607,18 @@ def main(user_cfg):
     else:
         # triangulation step:
         print('triangulating tiles...')
-        parallel.launch_calls(disparity_to_ply, tiles, nb_workers,
-                              timeout=timeout)
+        # ANCHOR: JaeWang
+        # parallel.launch_calls(disparity_to_ply, tiles, nb_workers,
+        #                      timeout=timeout)
+        for tile in tiles:
+            disparity_to_ply(tile)
 
     # local-dsm-rasterization step:
     print('computing DSM by tile...')
-    parallel.launch_calls(plys_to_dsm, tiles, nb_workers, timeout=timeout)
+    # ANCHOR: JaeWang
+    # parallel.launch_calls(plys_to_dsm, tiles, nb_workers, timeout=timeout)
+    for tile in tiles:
+        plys_to_dsm(tile)
 
     # global-dsm-rasterization step:
     print('computing global DSM...')
